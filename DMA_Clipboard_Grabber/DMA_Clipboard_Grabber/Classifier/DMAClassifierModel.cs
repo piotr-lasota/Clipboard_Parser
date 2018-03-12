@@ -11,28 +11,10 @@ namespace DMA_Clipboard_Grabber
     class DMAClassifierModel
     {
         #region Fields and properties
-        private int myVar;
-
         public string[] DefinitnMatches { get; private set; }
         public string[] DesignMatches { get; private set; }
         public string[] CommerceMatches { get; private set; }
         public string[] InputStringSplitted { get; private set; }
-
-        public int DefinitinCount
-        {
-            get { return this.DefinitnMatches.Count(); }
-        }
-
-        public int DesignCount
-        {
-            get { return this.DesignMatches.Count(); }
-        }
-
-        public int CommerceCount
-        {
-            get { return this.CommerceMatches.Count(); }
-        }
-
 
         #endregion
 

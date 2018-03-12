@@ -24,9 +24,9 @@ namespace DMA_Clipboard_Grabber
         {
             //InitializeComponent();
             DMAClassifierModel model = new DMAClassifierModel(Clipboard.GetText());
-            MessageBox.Show("Definitn: " + model.DefinitinCount.ToString());
-            MessageBox.Show("Design: " + model.DesignCount.ToString());
-            MessageBox.Show("Commerce: " + model.CommerceCount.ToString());
+            MessageBox.Show("Definitn: " + model.DefinitnMatches.Count());
+            MessageBox.Show("Design: " + model.DesignMatches.Count());
+            MessageBox.Show("Commerce: " + model.CommerceMatches.Count());
         }
     }
 }
