@@ -22,21 +22,18 @@ namespace DMA_Clipboard_Grabber
         public string Environment { get; private set; }
 
         /// <summary>
-        /// Resulting querry assembled at construction time.
-        /// </summary
+        /// Query assembled on get() time.
+        /// </summary>
+        public string Query { get; private set; }
 
-        private string query;
-
-        public string Query
-        {
-            get { return query; }
-            private set { query = value; }
-        }
-
-
+        /// <summary>
+        /// Cibstructor
+        /// </summary>
+        /// <param name="input">Input codes vector</param>
+        /// <param name="type">Type enum</param>
         public QueryExtractor(String[] input, DMAEnvironment type)
         {
-            this.CodesList = input;
+            CodesList = input;
             switch(type)
             {
                 case DMAEnvironment.COMMERCE:
@@ -52,7 +49,13 @@ namespace DMA_Clipboard_Grabber
                     Environment = "FOLDER";
                     break;
             }
-            this.Query = assembleQuerry(this.CodesList, this.Environment);
+            Query = assembleQuerry();
+        }
+
+        private string assembleQuerry()
+        {
+            //TODO: Query assembly xD
+            return "";
         }
     }
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DMA_Clipboard_Grabber"
         mc:Ignorable="d"
-        Title="Grabber" Height="250" Width="200"
+        Title="Grabber" Height="300" Width="200"
         ResizeMode="CanMinimize">
     <Border Padding="5">
         <Grid>
@@ -28,7 +28,7 @@
                     </Grid.RowDefinitions>
 
                     <Button Background="Yellow"
-                            IsEnabled="False"
+                            IsEnabled="{Binding AnyDefinitn}"
                             Grid.Column="0"
                             Grid.Row="0"
                             Grid.ColumnSpan="2"
@@ -60,8 +60,8 @@
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
 
-                    <Button Background="DarkBlue"
-                            IsEnabled="False"
+                    <Button Background="LightBlue"
+                            IsEnabled="{Binding AnyFolder}"
                             Grid.Column="0"
                             Grid.Row="0"
                             Grid.ColumnSpan="2"
@@ -76,7 +76,7 @@
                     <TextBlock Padding="10 0 0 0"
                                Grid.Column="1"
                                Grid.Row="1"
-                               Text="0"
+                               Text="{Binding FolderCount}"
                                HorizontalAlignment="Left"
                                VerticalAlignment="Center"/>
                 </Grid>
@@ -94,7 +94,7 @@
                     </Grid.RowDefinitions>
 
                     <Button Background="DarkGreen"
-                            IsEnabled="False"
+                            IsEnabled="{Binding AnyDesign}"
                             Grid.Column="0"
                             Grid.Row="0"
                             Grid.ColumnSpan="2"
@@ -109,7 +109,7 @@
                     <TextBlock Padding="10 0 0 0"
                                Grid.Column="1"
                                Grid.Row="1"
-                               Text="0"
+                               Text="{Binding DesignCount}"
                                HorizontalAlignment="Left"
                                VerticalAlignment="Center"/>
                 </Grid>
@@ -127,7 +127,7 @@
                     </Grid.RowDefinitions>
 
                     <Button Background="DarkRed"
-                            IsEnabled="False"
+                            IsEnabled="{Binding AnyCommerce}"
                             Grid.Column="0"
                             Grid.Row="0"
                             Grid.ColumnSpan="2"
@@ -142,7 +142,7 @@
                     <TextBlock Padding="10 0 0 0"
                                Grid.Column="1"
                                Grid.Row="1"
-                               Text="0"
+                               Text="{Binding CommerceCount}"
                                HorizontalAlignment="Left"
                                VerticalAlignment="Center"/>
                 </Grid>

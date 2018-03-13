@@ -14,7 +14,10 @@ namespace DMA_Clipboard_Grabber
         public string[] DefinitnMatches { get; private set; }
         public string[] DesignMatches { get; private set; }
         public string[] CommerceMatches { get; private set; }
+        public string[] FolderMatches { get; private set; }
+
         public string[] InputStringSplitted { get; private set; }
+        
 
         #endregion
 
@@ -26,6 +29,7 @@ namespace DMA_Clipboard_Grabber
             this.DefinitnMatches = RegexMatches(this.InputStringSplitted, this.regexDEFINITN);
             this.DesignMatches = RegexMatches(this.InputStringSplitted, this.regexDESIGN);
             this.CommerceMatches = RegexMatches(this.InputStringSplitted, this.regexCOMMERCE);
+            this.FolderMatches = this.DefinitnMatches;
         }
         #endregion
 
