@@ -61,6 +61,7 @@
     </ApplicationDefinition>
     <Compile Include="Printer\DMAEnvironment.cs" />
     <Compile Include="Printer\QueryExtractor.cs" />
+    <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

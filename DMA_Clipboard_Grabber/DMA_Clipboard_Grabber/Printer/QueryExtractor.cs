@@ -11,11 +11,48 @@ namespace DMA_Clipboard_Grabber
     /// </summary>
     class QueryExtractor
     {
-        public String[] CodesList { get; set; }
+        /// <summary>
+        /// Array of codes that are to be assembled into a query
+        /// </summary>
+        public String[] CodesList { get; private set; }
+
+        /// <summary>
+        /// Environment string based on the selected DMA environment
+        /// </summary>
+        public string Environment { get; private set; }
+
+        /// <summary>
+        /// Resulting querry assembled at construction time.
+        /// </summary
+
+        private string query;
+
+        public string Query
+        {
+            get { return query; }
+            private set { query = value; }
+        }
+
 
         public QueryExtractor(String[] input, DMAEnvironment type)
         {
             this.CodesList = input;
+            switch(type)
+            {
+                case DMAEnvironment.COMMERCE:
+                    Environment = "COMMERCE";
+                    break;
+                case DMAEnvironment.DEFINITN:
+                    Environment = "DEFINITN";
+                    break;
+                case DMAEnvironment.DESIGN:
+                    Environment = "DESIGN";
+                    break;
+                case DMAEnvironment.FOLDER:
+                    Environment = "FOLDER";
+                    break;
+            }
+            this.Query = assembleQuerry(this.CodesList, this.Environment);
         }
     }
 }
