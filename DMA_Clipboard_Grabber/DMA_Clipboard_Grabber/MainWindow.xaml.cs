@@ -22,13 +22,7 @@ namespace DMA_Clipboard_Grabber
     {
         public MainWindow()
         {
-
             InitializeComponent();
-            this.DataContext = new MainWindowViewModel();
-            //DMAClassifierModel model = new DMAClassifierModel(Clipboard.GetText());
-            //MessageBox.Show("Definitn: " + model.DefinitnMatches.Count());
-            //MessageBox.Show("Design: " + model.DesignMatches.Count());
-            //MessageBox.Show("Commerce: " + model.CommerceMatches.Count());
         }
     }
 }

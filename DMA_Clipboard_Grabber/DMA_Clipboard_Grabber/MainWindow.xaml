@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:DMA_Clipboard_Grabber"
         mc:Ignorable="d"
         Title="Grabber" Height="300" Width="200"
-        ResizeMode="CanMinimize">
+        ResizeMode="CanMinimize"
+        DataContext="{StaticResource MainWindowViewModel}">
     <Border Padding="5">
         <Grid>
             <Grid.RowDefinitions>

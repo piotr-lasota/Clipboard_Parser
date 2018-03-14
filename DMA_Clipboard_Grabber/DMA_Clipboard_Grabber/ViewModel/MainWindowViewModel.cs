@@ -2,9 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace DMA_Clipboard_Grabber
 {
@@ -48,6 +50,28 @@ namespace DMA_Clipboard_Grabber
             DesignCount = Classifier.DesignMatches.Count().ToString();
             CommerceCount = Classifier.CommerceMatches.Count().ToString();
             FolderCount = Classifier.FolderMatches.Count().ToString();
+            printResult();
+            Microsoft.Win32.SaveFileDialog SaveDialog = new Microsoft.Win32.SaveFileDialog();
+            SaveDialog.FileName = "Query";
+            SaveDialog.DefaultExt = ".qry";
+
+            Nullable<bool> result = SaveDialog.ShowDialog();
+            if(result == true)
+            {
+                QueryExtractor Printer = new QueryExtractor(Classifier.DefinitnMatches, DMAEnvironment.DEFINITN);
+                File.WriteAllText(SaveDialog.FileName, Printer.Query);
+            }
+        }
+        #endregion
+
+        #region Action handlers
+        
+        /// <summary>
+        /// Temporary test function
+        /// </summary>
+        public void printResult()
+        {
+            
         }
         #endregion
     }

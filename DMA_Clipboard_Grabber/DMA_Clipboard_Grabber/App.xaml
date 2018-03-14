@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:DMA_Clipboard_Grabber"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <local:MainWindowViewModel x:Key="MainWindowViewModel"/>
     </Application.Resources>
 </Application>

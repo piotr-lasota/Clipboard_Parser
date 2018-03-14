@@ -27,7 +27,7 @@ namespace DMA_Clipboard_Grabber
         public string Query { get; private set; }
 
         /// <summary>
-        /// Cibstructor
+        /// Constructor
         /// </summary>
         /// <param name="input">Input codes vector</param>
         /// <param name="type">Type enum</param>
@@ -55,7 +55,7 @@ namespace DMA_Clipboard_Grabber
         private string assembleQuerry()
         {
             //TODO: Query assembly xD
-            return "";
+            return String.Join("\nOR\n", CodesList);
         }
     }
 }

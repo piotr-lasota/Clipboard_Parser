@@ -44,7 +44,7 @@ namespace DMA_Clipboard_Grabber
 
         string[] regexDESIGN =
         {
-            @"^\w{2}[Dd]*\d{1,}\d{2}\z", // DESIGN:     ATD*3962
+            @"^\w{2}[Dd]\*\d{1,}\d{2}\z", // DESIGN:     ATD*3962
             @"^\w{2}[Dd]\d{10}\z"        // DESIGN:     ATD0001233962
         };
 
