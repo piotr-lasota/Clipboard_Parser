@@ -61,6 +61,8 @@
     </ApplicationDefinition>
     <Compile Include="Models\Printer\DMAEnvironment.cs" />
     <Compile Include="Models\Printer\QueryAssembler.cs" />
+    <Compile Include="ViewModel\Commands\ExtractCommand.cs" />
+    <Compile Include="ViewModel\Commands\PrintCarrier.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -109,9 +111,7 @@
   <ItemGroup>
     <Resource Include="Models\Classifier\Old\Old code.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModel\Commands\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Fody.2.4.4\build\Fody.targets" Condition="Exists('..\packages\Fody.2.4.4\build\Fody.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

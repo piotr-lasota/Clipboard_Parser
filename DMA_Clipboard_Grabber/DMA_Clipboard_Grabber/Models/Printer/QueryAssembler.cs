@@ -54,7 +54,6 @@ namespace DMA_Clipboard_Grabber
         private string assembleQuerry()
         {
             string environmentLine = envLine.Replace("ReplaceMe", Environment);
-            //TODO: Query assembly xD
             return environmentLine + "\r\nPART_LIST;S_PART_NUMBER;WITH;"
                 + String.Join(";;\r\nOR\r\nPART_LIST;S_PART_NUMBER;WITH;", CodesList)
                 + ";;";
