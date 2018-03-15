@@ -59,6 +59,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Classifier\Old\OldClass.cs" />
     <Compile Include="Printer\DMAEnvironment.cs" />
     <Compile Include="Printer\QueryExtractor.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
