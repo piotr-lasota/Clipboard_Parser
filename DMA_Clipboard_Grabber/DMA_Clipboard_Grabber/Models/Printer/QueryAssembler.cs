@@ -1,16 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DMA_Clipboard_Grabber
 {
     /// <summary>
     /// Simple helper class to pass the String[] into and get the output Query file
     /// </summary>
-    class QueryExtractor
+    class QueryAssembler
     {
+
+        static string envLine = "##DMATYPE cośtam ReplaceMe"; // first line. Correct this one
+
         /// <summary>
         /// Array of codes that are to be assembled into a query
         /// </summary>
@@ -31,7 +30,7 @@ namespace DMA_Clipboard_Grabber
         /// </summary>
         /// <param name="input">Input codes vector</param>
         /// <param name="type">Type enum</param>
-        public QueryExtractor(String[] input, DMAEnvironment type)
+        public QueryAssembler(String[] input, DMAEnvironment type)
         {
             CodesList = input;
             switch(type)
@@ -54,8 +53,11 @@ namespace DMA_Clipboard_Grabber
 
         private string assembleQuerry()
         {
+            string environmentLine = envLine.Replace("ReplaceMe", Environment);
             //TODO: Query assembly xD
-            return String.Join("\nOR\n", CodesList);
+            return environmentLine + "\r\nPART_LIST;S_PART_NUMBER;WITH;"
+                + String.Join(";;\r\nOR\r\nPART_LIST;S_PART_NUMBER;WITH;", CodesList)
+                + ";;";
         }
     }
 }

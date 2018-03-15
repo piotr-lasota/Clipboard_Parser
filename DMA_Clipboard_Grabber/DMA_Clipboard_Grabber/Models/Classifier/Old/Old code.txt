@@ -10,6 +10,25 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
+        #region ToDos
+        //private void test()
+        //{
+        //    printResult();
+        //    Microsoft.Win32.SaveFileDialog SaveDialog = new Microsoft.Win32.SaveFileDialog();
+        //    SaveDialog.FileName = "Query";
+        //    SaveDialog.DefaultExt = ".qry";
+
+        //    Nullable<bool> result = SaveDialog.ShowDialog();
+        //    if (result == true)
+        //    {
+        //        QueryExtractor Printer = new QueryExtractor(Classifier.DefinitnMatches, DMAEnvironment.DEFINITN);
+        //        File.WriteAllText(SaveDialog.FileName, Printer.Query);
+        //    }
+        //}
+        #endregion
+
+
 namespace Shit
 {
     public partial class OldClass : Form

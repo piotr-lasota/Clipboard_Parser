@@ -23,6 +23,7 @@ namespace DMA_Clipboard_Grabber
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = new MainWindowViewModel();
         }
     }
 }

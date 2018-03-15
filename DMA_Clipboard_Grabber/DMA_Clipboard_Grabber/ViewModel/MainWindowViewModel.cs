@@ -1,12 +1,7 @@
-﻿using PropertyChanged;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 
 namespace DMA_Clipboard_Grabber
 {
@@ -14,7 +9,7 @@ namespace DMA_Clipboard_Grabber
     /// Main Window ViewModel - links the DMAClassifierModel with the GUI shown values
     /// (for quantities of objects identified in the clipboardd)
     /// 
-    /// Additionally it launches the required QueryExtractor to prepare the string to be printed
+    /// Additionally it launches the required QueryAssembler to prepare the string to be printed
     /// and keep it in the memory to be finally outputted in the location selected by the user.
     /// </summary>
     class MainWindowViewModel : INotifyPropertyChanged
@@ -34,14 +29,12 @@ namespace DMA_Clipboard_Grabber
         public string CommerceCount { get; set; }
         public string FolderCount { get; set; }
         #endregion
-
         #region Buttons enabler properties
         public string AnyDefinitn { get { return (Classifier.DefinitnMatches.Count() > 0).ToString(); }}
         public string AnyDesign{ get { return (Classifier.DesignMatches.Count() > 0).ToString(); } }
         public string AnyCommerce { get { return (Classifier.CommerceMatches.Count() > 0).ToString(); } }
         public string AnyFolder { get { return (Classifier.FolderMatches.Count() > 0).ToString(); } }
         #endregion
-
         #region Constructor
         public MainWindowViewModel()
         {
@@ -50,29 +43,29 @@ namespace DMA_Clipboard_Grabber
             DesignCount = Classifier.DesignMatches.Count().ToString();
             CommerceCount = Classifier.CommerceMatches.Count().ToString();
             FolderCount = Classifier.FolderMatches.Count().ToString();
-            printResult();
+        }
+        #endregion
+        #region Commands
+        
+        /// <summary>
+        /// Saves the selected matches as DMA Filter query
+        /// </summary>
+        /// <param name="group">Array of part codes</param>
+        /// <param name="selectedEnvironment">Selected DMA environment type</param>
+        public static void SaveSelected(string[] group, DMAEnvironment selectedEnvironment)
+        {
             Microsoft.Win32.SaveFileDialog SaveDialog = new Microsoft.Win32.SaveFileDialog();
             SaveDialog.FileName = "Query";
             SaveDialog.DefaultExt = ".qry";
 
             Nullable<bool> result = SaveDialog.ShowDialog();
-            if(result == true)
+            if (result == true)
             {
-                QueryExtractor Printer = new QueryExtractor(Classifier.DefinitnMatches, DMAEnvironment.DEFINITN);
+                QueryAssembler Printer = new QueryAssembler(group, selectedEnvironment);
                 File.WriteAllText(SaveDialog.FileName, Printer.Query);
             }
         }
         #endregion
 
-        #region Action handlers
-        
-        /// <summary>
-        /// Temporary test function
-        /// </summary>
-        public void printResult()
-        {
-            
-        }
-        #endregion
     }
 }

@@ -6,9 +6,10 @@
         xmlns:local="clr-namespace:DMA_Clipboard_Grabber"
         mc:Ignorable="d"
         Title="Grabber" Height="300" Width="200"
-        ResizeMode="CanMinimize"
-        DataContext="{StaticResource MainWindowViewModel}">
-
+        ResizeMode="CanMinimize">
+    <!-- Later try and add the proper datacontext in xaml for empty code behind
+    DataContext="{StaticResource MainWindowViewModel}">
+    --> 
     <Border Padding="5">
         <Grid>
             <Grid.RowDefinitions>
@@ -149,7 +150,6 @@
                                VerticalAlignment="Center"/>
                 </Grid>
             </Border>
-
         </Grid>
     </Border>
 </Window>
