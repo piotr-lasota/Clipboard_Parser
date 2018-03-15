@@ -8,6 +8,7 @@
         Title="Grabber" Height="300" Width="200"
         ResizeMode="CanMinimize"
         DataContext="{StaticResource MainWindowViewModel}">
+
     <Border Padding="5">
         <Grid>
             <Grid.RowDefinitions>
