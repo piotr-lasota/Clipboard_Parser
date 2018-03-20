@@ -29,12 +29,14 @@ namespace DMA_Clipboard_Grabber
         public string CommerceCount { get; set; }
         public string FolderCount { get; set; }
         #endregion
+
         #region Buttons enabler properties
         public string AnyDefinitn { get { return (Classifier.DefinitnMatches.Count() > 0).ToString(); }}
         public string AnyDesign{ get { return (Classifier.DesignMatches.Count() > 0).ToString(); } }
         public string AnyCommerce { get { return (Classifier.CommerceMatches.Count() > 0).ToString(); } }
         public string AnyFolder { get { return (Classifier.FolderMatches.Count() > 0).ToString(); } }
         #endregion
+
         #region Constructor
         public MainWindowViewModel()
         {
@@ -45,8 +47,8 @@ namespace DMA_Clipboard_Grabber
             FolderCount = Classifier.FolderMatches.Count().ToString();
         }
         #endregion
-        #region Commands
-        
+
+        #region Commands        
         /// <summary>
         /// Saves the selected matches as DMA Filter query
         /// </summary>

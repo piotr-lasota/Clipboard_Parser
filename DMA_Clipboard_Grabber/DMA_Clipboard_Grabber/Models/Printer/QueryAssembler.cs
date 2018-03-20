@@ -2,13 +2,16 @@
 
 namespace DMA_Clipboard_Grabber
 {
+
+    //TODO: SOLID'ify this. Open for extension, closed for modification. Look an ENUM up and dispatch the proper handler meeting an interface / abstract class.
+
     /// <summary>
     /// Simple helper class to pass the String[] into and get the output Query file
     /// </summary>
     class QueryAssembler
     {
 
-        static string envLine = "##DMATYPE cośtam ReplaceMe"; // first line. Correct this one
+        static string envLine = "##DMATYPE cośtam ReplaceMe"; //TODO: Query first line - get the proper form
 
         /// <summary>
         /// Array of codes that are to be assembled into a query
@@ -48,10 +51,10 @@ namespace DMA_Clipboard_Grabber
                     Environment = "FOLDER";
                     break;
             }
-            Query = assembleQuerry();
+            Query = AssembleQuerry();
         }
 
-        private string assembleQuerry()
+        private string AssembleQuerry()
         {
             string environmentLine = envLine.Replace("ReplaceMe", Environment);
             return environmentLine + "\r\nPART_LIST;S_PART_NUMBER;WITH;"
