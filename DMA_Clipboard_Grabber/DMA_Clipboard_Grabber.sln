@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27428.2002
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DMA_Clipboard_Grabber", "DMA_Clipboard_Grabber\DMA_Clipboard_Grabber.csproj", "{4ABD0D8E-64D0-4848-8222-A4C51E022C60}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DMA_Clipboard_Parser_Tests", "DMA_Clipboard_Parser_Tests\DMA_Clipboard_Parser_Tests.csproj", "{71395F80-FCE2-424C-801D-DAE405970746}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{4ABD0D8E-64D0-4848-8222-A4C51E022C60}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4ABD0D8E-64D0-4848-8222-A4C51E022C60}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4ABD0D8E-64D0-4848-8222-A4C51E022C60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71395F80-FCE2-424C-801D-DAE405970746}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71395F80-FCE2-424C-801D-DAE405970746}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71395F80-FCE2-424C-801D-DAE405970746}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71395F80-FCE2-424C-801D-DAE405970746}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
