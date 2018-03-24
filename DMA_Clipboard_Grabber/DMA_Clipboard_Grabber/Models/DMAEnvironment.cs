@@ -1,6 +1,6 @@
 ﻿namespace DMA_Clipboard_Grabber
 {
-    enum DMAEnvironment
+    public enum DMAEnvironment
     {
         DEFINITN,
         FOLDER,

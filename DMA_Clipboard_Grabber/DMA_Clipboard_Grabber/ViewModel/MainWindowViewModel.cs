@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
+using System.Windows;
 
 namespace DMA_Clipboard_Grabber
 {
@@ -20,7 +21,7 @@ namespace DMA_Clipboard_Grabber
         /// <summary>
         /// Stored DMACLassifierModel instance, that will be used by the app.
         /// </summary>
-        DMAClassifierModel Classifier;
+        Classifier classifier;
         #endregion
 
         #region Counters properties
@@ -31,20 +32,21 @@ namespace DMA_Clipboard_Grabber
         #endregion
 
         #region Buttons enabler properties
-        public string AnyDefinitn { get { return (Classifier.DefinitnMatches.Count() > 0).ToString(); }}
-        public string AnyDesign{ get { return (Classifier.DesignMatches.Count() > 0).ToString(); } }
-        public string AnyCommerce { get { return (Classifier.CommerceMatches.Count() > 0).ToString(); } }
-        public string AnyFolder { get { return (Classifier.FolderMatches.Count() > 0).ToString(); } }
+        public string AnyDefinitn { get { return (classifier.DefinitnMatches.Count() > 0).ToString(); }}
+        public string AnyDesign{ get { return (classifier.DesignMatches.Count() > 0).ToString(); } }
+        public string AnyCommerce { get { return (classifier.CommerceMatches.Count() > 0).ToString(); } }
+        public string AnyFolder { get { return (classifier.FolderMatches.Count() > 0).ToString(); } }
         #endregion
 
         #region Constructor
         public MainWindowViewModel()
         {
-            Classifier = new DMAClassifierModel(System.Windows.Clipboard.GetText());
-            DefinitinCount = Classifier.DefinitnMatches.Count().ToString();
-            DesignCount = Classifier.DesignMatches.Count().ToString();
-            CommerceCount = Classifier.CommerceMatches.Count().ToString();
-            FolderCount = Classifier.FolderMatches.Count().ToString();
+            classifier = new Classifier(System.Windows.Clipboard.GetText());
+            DefinitinCount = classifier.DefinitnMatches.Count().ToString();
+            DesignCount = classifier.DesignMatches.Count().ToString();
+            CommerceCount = classifier.CommerceMatches.Count().ToString();
+            FolderCount = classifier.FolderMatches.Count().ToString();
+            MessageBox.Show(new QueryAssembler(classifier.DefinitnMatches, "DEFINITN").Query);
         }
         #endregion
 
@@ -60,12 +62,14 @@ namespace DMA_Clipboard_Grabber
             SaveDialog.FileName = "Query";
             SaveDialog.DefaultExt = ".qry";
 
-            Nullable<bool> result = SaveDialog.ShowDialog();
-            if (result == true)
-            {
-                QueryAssembler Printer = new QueryAssembler(group, selectedEnvironment);
-                File.WriteAllText(SaveDialog.FileName, Printer.Query);
-            }
+
+
+            //Nullable<bool> result = SaveDialog.ShowDialog();
+            //if (result == true)
+            //{
+            //    QueryAssembler Printer = new QueryAssembler(group, selectedEnvironment); //TODO: Fix this shit
+            //    File.WriteAllText(SaveDialog.FileName, Printer.Query);
+            //}
         }
         #endregion
 

@@ -31,26 +31,12 @@ namespace DMA_Clipboard_Grabber
         /// <summary>
         /// Constructor
         /// </summary>
-        /// <param name="input">Input codes vector</param>
-        /// <param name="type">Type enum</param>
-        public QueryAssembler(String[] input, DMAEnvironment type)
+        /// <param name="input">Array of codes to search</param>
+        /// <param name="environment">Search Environment string</param>
+        public QueryAssembler(String[] input, String environment)
         {
             CodesList = input;
-            switch(type)
-            {
-                case DMAEnvironment.COMMERCE:
-                    Environment = "COMMERCE";
-                    break;
-                case DMAEnvironment.DEFINITN:
-                    Environment = "DEFINITN";
-                    break;
-                case DMAEnvironment.DESIGN:
-                    Environment = "DESIGN";
-                    break;
-                case DMAEnvironment.FOLDER:
-                    Environment = "FOLDER";
-                    break;
-            }
+            Environment = environment;
             Query = AssembleQuerry();
         }
 

@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 
 namespace DMA_Clipboard_Grabber
 {
-    class DMAClassifierModel
+    public class Classifier
     {
         #region Fields and properties
         public string[] DefinitnMatches { get; private set; }
@@ -18,14 +18,22 @@ namespace DMA_Clipboard_Grabber
         #endregion
 
         #region Constructor
-        public DMAClassifierModel(string input)
+        public Classifier(string input)
         {
             InputStringSplitted = input.Split(this.delimiters);
 
+            // I don't like this... DRY not respected -> think of improvement
             this.DefinitnMatches = RegexMatches(this.InputStringSplitted, this.regexDEFINITN);
+            DefinitnMatches = DefinitnMatches.Distinct().ToArray();
+
             this.DesignMatches = RegexMatches(this.InputStringSplitted, this.regexDESIGN);
+            DesignMatches = DesignMatches.Distinct().ToArray();
+
             this.CommerceMatches = RegexMatches(this.InputStringSplitted, this.regexCOMMERCE);
+            CommerceMatches = CommerceMatches.Distinct().ToArray();
+
             this.FolderMatches = this.DefinitnMatches;
+            FolderMatches = FolderMatches.Distinct().ToArray();
         }
         #endregion
 
