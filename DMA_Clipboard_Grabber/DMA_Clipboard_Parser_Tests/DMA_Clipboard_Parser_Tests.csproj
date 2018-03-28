@@ -51,6 +51,7 @@
     <Compile Include="Classifier_tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueryAssembler_tests.cs" />
+    <Compile Include="ZeroFiller_tests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
