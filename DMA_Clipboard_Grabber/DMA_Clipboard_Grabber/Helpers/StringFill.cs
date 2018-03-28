@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DMA_Clipboard_Grabber
 {
-    public static class ZeroFiller
+    public static class StringFill
     {
         /// <summary>
         /// Replaces the asterisk in string with a given character enough times to match a desired length
@@ -15,7 +11,7 @@ namespace DMA_Clipboard_Grabber
         /// <param name="desiredLength">Desired length of the string</param>
         /// <param name="desiredFill">Character to fill up with</param>
         /// /// <returns></returns>
-        public static string fillToDigits(string code, int desiredLength, char desiredFill)
+        public static string FillToLength(string code, int desiredLength, char desiredFill)
         {
             // if the code is already at it's desired length, return it back switching it to capital letters.
             if(code.Length == desiredLength)
