@@ -4,19 +4,15 @@ using System.Linq;
 
 namespace DMA_Clipboard_Grabber
 {
-
-    //TODO: SOLID'ify this. Open for extension, closed for modification. Look an ENUM up and dispatch the proper handler meeting an interface / abstract class.
-
     /// <summary>
-    /// Simple helper class to pass the String[] into and get the output Query file
+    /// Simple helper class to pass the List(string) into and get the output Query file
     /// </summary>
     public class QueryAssembly
     {
-
         static string envLine = "##DMATYPE cośtam ReplaceMe"; //TODO: Query first line - get the proper form
 
         /// <summary>
-        /// Array of codes that are to be assembled into a query
+        /// List of codes that are to be assembled into a query
         /// </summary>
         public List<string> CodesList { get; private set; }
 
@@ -35,9 +31,9 @@ namespace DMA_Clipboard_Grabber
         /// </summary>
         /// <param name="input">Array of codes to search</param>
         /// <param name="environment">Search Environment string</param>
-        public QueryAssembly(List<string> input, String environment)
+        public QueryAssembly(List<string> input, String environment, int length, char fill)
         {
-            CodesList = input;
+            CodesList = StringFill.FillListToLength(input, length, fill);
             Environment = environment;
             Query = AssembleQuerry();   
         }

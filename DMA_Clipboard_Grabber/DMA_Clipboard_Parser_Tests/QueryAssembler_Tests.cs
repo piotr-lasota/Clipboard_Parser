@@ -17,7 +17,7 @@ namespace DMA_Clipboard_Parser_Tests
             string expectedResult = "Placeholder";
 
             // act
-            QueryAssembly queryAssembly = new QueryAssembly(input, environment);
+            QueryAssembly queryAssembly = new QueryAssembly(input, environment, 13, '0');
 
             // assert
             Assert.AreEqual<String>(expectedResult, queryAssembly.Query);
