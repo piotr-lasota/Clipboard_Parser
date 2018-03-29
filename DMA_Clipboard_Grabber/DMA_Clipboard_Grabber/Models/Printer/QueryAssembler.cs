@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace DMA_Clipboard_Grabber
 {
@@ -8,7 +10,7 @@ namespace DMA_Clipboard_Grabber
     /// <summary>
     /// Simple helper class to pass the String[] into and get the output Query file
     /// </summary>
-    class QueryAssembler
+    public class QueryAssembly
     {
 
         static string envLine = "##DMATYPE cośtam ReplaceMe"; //TODO: Query first line - get the proper form
@@ -16,7 +18,7 @@ namespace DMA_Clipboard_Grabber
         /// <summary>
         /// Array of codes that are to be assembled into a query
         /// </summary>
-        public String[] CodesList { get; private set; }
+        public List<string> CodesList { get; private set; }
 
         /// <summary>
         /// Environment string based on the selected DMA environment
@@ -33,11 +35,11 @@ namespace DMA_Clipboard_Grabber
         /// </summary>
         /// <param name="input">Array of codes to search</param>
         /// <param name="environment">Search Environment string</param>
-        public QueryAssembler(String[] input, String environment)
+        public QueryAssembly(List<string> input, String environment)
         {
             CodesList = input;
             Environment = environment;
-            Query = AssembleQuerry();
+            Query = AssembleQuerry();   
         }
 
         private string AssembleQuerry()

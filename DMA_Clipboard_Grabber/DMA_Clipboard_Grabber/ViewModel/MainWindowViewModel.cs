@@ -46,7 +46,7 @@ namespace DMA_Clipboard_Grabber
             DesignCount = classifier.DesignMatches.Count().ToString();
             CommerceCount = classifier.CommerceMatches.Count().ToString();
             FolderCount = classifier.FolderMatches.Count().ToString();
-            MessageBox.Show(new QueryAssembler(classifier.DefinitnMatches, "DEFINITN").Query);
+            MessageBox.Show(new QueryAssembly(classifier.DefinitnMatches, "DEFINITN").Query);
         }
         #endregion
 
@@ -61,8 +61,6 @@ namespace DMA_Clipboard_Grabber
             Microsoft.Win32.SaveFileDialog SaveDialog = new Microsoft.Win32.SaveFileDialog();
             SaveDialog.FileName = "Query";
             SaveDialog.DefaultExt = ".qry";
-
-
 
             //Nullable<bool> result = SaveDialog.ShowDialog();
             //if (result == true)

@@ -22,7 +22,7 @@ namespace DMA_Clipboard_Parser_Tests
 
         #region DTR
         [TestMethod]
-        public void Classifier_FullNumberDTR_ShouldMatchCommerce()
+        public void Constructor_FullNumberDTR_ShouldMatchCommerce()
         {
             //// arrange
             string[] expectedMatches = { "DTR1234567890" };
@@ -35,7 +35,7 @@ namespace DMA_Clipboard_Parser_Tests
         }
 
         [TestMethod]
-        public void Classifier_AsteriskDTR_ShouldMatchCommerce()
+        public void Constructor_AsteriskDTR_ShouldMatchCommerce()
         {
             //// arrange
             string[] expectedMatches = { "DTR*320" };
@@ -50,7 +50,7 @@ namespace DMA_Clipboard_Parser_Tests
 
         #region Design
         [TestMethod]
-        public void Classifier_FullNumberDesign_ShouldMatchDesign()
+        public void Constructor_FullNumberDesign_ShouldMatchDesign()
         {
             //// arrange
             string[] expectedMatches = { "ABD1234567890" };
@@ -63,7 +63,7 @@ namespace DMA_Clipboard_Parser_Tests
         }
 
         [TestMethod]
-        public void Classifier_AsteriskDesign_ShouldMatchDesign()
+        public void Constructor_AsteriskDesign_ShouldMatchDesign()
         {
             //// arrange
             string[] expectedMatches = { "ABD*333", "XYD*1234" };
@@ -78,7 +78,7 @@ namespace DMA_Clipboard_Parser_Tests
 
         #region Definitn
         [TestMethod]
-        public void Classifier_FullNumberDefinitn_ShouldMatchDefinitn()
+        public void Constructor_FullNumberDefinitn_ShouldMatchDefinitn()
         {
             //// arrange
             string[] expectedMatches = { "GL01234567890", "GD02345678901" };
@@ -91,7 +91,7 @@ namespace DMA_Clipboard_Parser_Tests
         }
 
         [TestMethod]
-        public void Classifier_AsteriskDefinitn_ShouldMatchDefinitn()
+        public void Constructor_AsteriskDefinitn_ShouldMatchDefinitn()
         {
             //// arrange
             string[] expectedMatches = { "AX*3201", "AX0*123" };
@@ -105,7 +105,7 @@ namespace DMA_Clipboard_Parser_Tests
         #endregion
 
         #region Folder
-        public void Classifier_FullNumberDefinitn_ShouldMatchFolder()
+        public void Constructor_FullNumberDefinitn_ShouldMatchFolder()
         {
             //// arrange
             string[] expectedMatches = { "GL01234567890", "GD02345678901" };
@@ -118,7 +118,7 @@ namespace DMA_Clipboard_Parser_Tests
         }
 
         [TestMethod]
-        public void Classifier_AsteriskDefinitn_ShouldMatchFolder()
+        public void Constructor_AsteriskDefinitn_ShouldMatchFolder()
         {
             //// arrange
             string[] expectedMatches = { "AX*3201", "AX0*123" };

@@ -109,9 +109,6 @@
     <Resource Include="FodyWeavers.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Models\Classifier\Old\Old code.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="ViewModel\Commands\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
