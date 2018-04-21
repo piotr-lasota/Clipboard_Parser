@@ -9,7 +9,7 @@ namespace DMA_Clipboard_Grabber
     /// </summary>
     public class QueryAssembly
     {
-        static string envLine = "##DMATYPE cośtam ReplaceMe"; //TODO: Query first line - get the proper form
+        static string envLine = "#CDMA.CATCON.ReplaceMe.PART"; //TODO: Query first line - get the proper form
 
         /// <summary>
         /// List of codes that are to be assembled into a query

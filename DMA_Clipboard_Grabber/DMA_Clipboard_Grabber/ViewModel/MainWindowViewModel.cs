@@ -46,7 +46,7 @@ namespace DMA_Clipboard_Grabber
             DesignCount = classifier.DesignMatches.Count().ToString();
             CommerceCount = classifier.CommerceMatches.Count().ToString();
             FolderCount = classifier.FolderMatches.Count().ToString();
-            MessageBox.Show(new QueryAssembly(classifier.DefinitnMatches, "DEFINITN").Query);
+            MessageBox.Show(new QueryAssembly(classifier.DefinitnMatches, "DEFINITN", 13, '0').Query);
         }
         #endregion
 
