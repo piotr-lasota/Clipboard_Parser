@@ -8,16 +8,18 @@ namespace DMA_Clipboard_Parser_Tests
     [TestClass]
     public class Classifier_tests
     {
-
         #region Testing data
         // Test string
-        string teststring = @"DTR1234567890 jest numerem, z którym sporo osób ma (pewne) problemy. Podobnie DTR*320. Wszystko mamy jednak w geometriach GL01234567890 i GD02345678901. Doliczamy sobie do tego ABD1234567890 ABD*333 i ich party AX*3201, AX0*123 oraz i XYD*1234 jest komplet.";
+        string teststring = @"OK values: DTR1234567890 like DTR*320 like GL01234567890 like GD02345678901 like ABD1234567890 like ABD*333 like AX*3201, AX0*123 like XYD*1234. NOK values: AB000000000034, DTR000000000034, ABD000000000034, AB*000000000000023, DTR*000000000000023, ABD*000000000000023";
 
         // Outputs expected of the string.
         string[] DTRoutput = { "DTR1234567890", "DTR*320" };
         string[] DESIGNoutput = { "ABD*333", "ABD1234567890", "XYD*1234" };
         string[] DEFINITNoutput = { "GL01234567890", "GD02345678901", "AX*3201", "AX0*123" };
         string[] FOLDERoutput = { "GL01234567890", "GD02345678901", "AX*3201", "AX0*123" };
+        string[] TooLongDefinitn = { "AB000000000034", "AB*000000000000023" };
+        string[] TooLongDTR = { "DTR*000000000000023", "DTR000000000034"};
+        string[] TooLongDesign = { "ABD000000000034", "ABD*000000000000023" };
         #endregion
 
         #region DTR
@@ -45,6 +47,21 @@ namespace DMA_Clipboard_Parser_Tests
 
             //// assert
             CollectionAssert.IsSubsetOf(expectedMatches, classifier.CommerceMatches);
+        }
+
+        [TestMethod]
+        public void Constructor_TooLongAsteriskDTR_ShouldNotMatchCommerce()
+        {
+            //// arrange
+            Classifier classifier = new Classifier(teststring);
+
+            //// act
+
+            //// assert
+            foreach(string input in TooLongDTR)
+            {
+                CollectionAssert.DoesNotContain(classifier.CommerceMatches, input);
+            }
         }
         #endregion
 
@@ -74,6 +91,21 @@ namespace DMA_Clipboard_Parser_Tests
             //// assert
             CollectionAssert.IsSubsetOf(expectedMatches, classifier.DesignMatches);
         }
+
+        [TestMethod]
+        public void Constructor_TooLongAsteriskDesign_ShouldNotMatchDesign()
+        {
+            //// arrange
+            Classifier classifier = new Classifier(teststring);
+
+            //// act
+
+            //// assert
+            foreach (string input in TooLongDesign)
+            {
+                CollectionAssert.DoesNotContain(classifier.DesignMatches, input);
+            }
+        }
         #endregion
 
         #region Definitn
@@ -89,7 +121,6 @@ namespace DMA_Clipboard_Parser_Tests
             //// assert
             CollectionAssert.IsSubsetOf(expectedMatches, classifier.DefinitnMatches);
         }
-
         [TestMethod]
         public void Constructor_AsteriskDefinitn_ShouldMatchDefinitn()
         {
@@ -102,9 +133,39 @@ namespace DMA_Clipboard_Parser_Tests
             //// assert
             CollectionAssert.IsSubsetOf(expectedMatches, classifier.DefinitnMatches);
         }
+
+        [TestMethod]
+        public void Constructor_TooLongAsteriskDefinitn_ShouldNotMatchDefinitn()
+        {
+            //// arrange
+            Classifier classifier = new Classifier(teststring);
+
+            //// act
+
+            //// assert
+            foreach (string input in TooLongDefinitn)
+            {
+                CollectionAssert.DoesNotContain(classifier.DefinitnMatches, input);
+            }
+        }
         #endregion
 
         #region Folder
+
+        [TestMethod]
+        public void Constructor_AsteriskDefinitn_ShouldMatchFolder()
+        {
+            //// arrange
+            string[] expectedMatches = { "AX*3201", "AX0*123" };
+            Classifier classifier = new Classifier(teststring);
+
+            //// act
+
+            //// assert
+            CollectionAssert.IsSubsetOf(expectedMatches, classifier.FolderMatches);
+        }
+
+        [TestMethod]
         public void Constructor_FullNumberDefinitn_ShouldMatchFolder()
         {
             //// arrange
@@ -118,16 +179,18 @@ namespace DMA_Clipboard_Parser_Tests
         }
 
         [TestMethod]
-        public void Constructor_AsteriskDefinitn_ShouldMatchFolder()
+        public void Constructor_TooLongAsteriskDefinitn_ShouldNotMatchFolder()
         {
             //// arrange
-            string[] expectedMatches = { "AX*3201", "AX0*123" };
             Classifier classifier = new Classifier(teststring);
 
             //// act
 
             //// assert
-            CollectionAssert.IsSubsetOf(expectedMatches, classifier.FolderMatches);
+            foreach (string input in TooLongDefinitn)
+            {
+                CollectionAssert.DoesNotContain(classifier.DefinitnMatches, input);
+            }
         }
         #endregion
     }
