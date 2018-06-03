@@ -13,12 +13,12 @@ namespace DMA_Clipboard_Parser_Tests
         {
             // arange
             List<string> input = new List<string> { "AX*1234" };
-            string environment = "DEFINITN";
+            DMAEnvironment environment = DMAEnvironment.DEFINITN;
             string expectedResult = "#CDMA.CATCON.DEFINITN.PART\r\n" +
                 "PART_LIST;S_PART_NUMBER;WITH;AX00000001234;;";
                 
             // act
-            QueryAssembly queryAssembly = new QueryAssembly(input, environment, 13, '0');
+            QueryAssembler queryAssembly = new QueryAssembler(input, environment, 13, '0');
 
             // assert
             Assert.AreEqual<String>(expectedResult, queryAssembly.Query);
@@ -29,14 +29,14 @@ namespace DMA_Clipboard_Parser_Tests
         {
             // arange
             List<string> input = new List<string> { "AX*1234", "AB*3333" };
-            string environment = "DEFINITN";
+            DMAEnvironment environment = DMAEnvironment.DEFINITN;
             string expectedResult = "#CDMA.CATCON.DEFINITN.PART\r\n" +
                 "PART_LIST;S_PART_NUMBER;WITH;AX00000001234;;\r\n" +
                 "OR\r\n" +
                 "PART_LIST;S_PART_NUMBER;WITH;AB00000003333;;";
 
             // act
-            QueryAssembly queryAssembly = new QueryAssembly(input, environment, 13, '0');
+            QueryAssembler queryAssembly = new QueryAssembler(input, environment, 13, '0');
 
             // assert
             Assert.AreEqual<String>(expectedResult, queryAssembly.Query);

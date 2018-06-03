@@ -63,6 +63,7 @@
     <Compile Include="Helpers\StringFill.cs" />
     <Compile Include="Models\DMAEnvironment.cs" />
     <Compile Include="Models\Printer\QueryAssembler.cs" />
+    <Compile Include="Models\Printer\QueryPrinter.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

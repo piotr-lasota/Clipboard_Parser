@@ -12,6 +12,8 @@ namespace DMA_Clipboard_Grabber
         public List<string> DesignMatches { get; private set; }
         public List<string> CommerceMatches { get; private set; }
         public List<string> FolderMatches { get; private set; }
+        public List<string> ZoneMatches { get; private set; }
+        public List<string> ProductMatches { get; private set; }
 
         public List<string> InputStringSplitted { get; private set; }
         #endregion
@@ -19,19 +21,26 @@ namespace DMA_Clipboard_Grabber
         #region Constructor
         public Classifier(string input)
         {
-            InputStringSplitted = input.Split(this.delimiters.ToArray<char>()).ToList<string>();
+            InputStringSplitted = input.Split(delimiters.ToArray<char>()).ToList<string>();
             
-            this.DefinitnMatches = RegexMatches(this.InputStringSplitted, this.regexDEFINITN);
+            DefinitnMatches = RegexMatches(InputStringSplitted, regexDEFINITN);
             DefinitnMatches = DefinitnMatches.Distinct().ToList();
 
-            this.DesignMatches = RegexMatches(this.InputStringSplitted, this.regexDESIGN);
+            DesignMatches = RegexMatches(InputStringSplitted, regexDESIGN);
             DesignMatches = DesignMatches.Distinct().ToList();
 
-            this.CommerceMatches = RegexMatches(this.InputStringSplitted, this.regexCOMMERCE);
+            CommerceMatches = RegexMatches(InputStringSplitted, regexCOMMERCE);
             CommerceMatches = CommerceMatches.Distinct().ToList();
 
-            this.FolderMatches = this.DefinitnMatches;
+            // Fake classifications - the same code as DEFINITN
+            FolderMatches = DefinitnMatches;
             FolderMatches = FolderMatches.Distinct().ToList();
+
+            ZoneMatches = DefinitnMatches;
+            ZoneMatches = ZoneMatches.Distinct().ToList();
+
+            ProductMatches = DefinitnMatches;
+            ProductMatches = ProductMatches.Distinct().ToList();
         }
         #endregion
 

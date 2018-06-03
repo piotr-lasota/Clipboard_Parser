@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DMA_Clipboard_Grabber"
         mc:Ignorable="d"
-        Title="Grabber" Height="300" Width="200"
+        Title="Grabber" Height="300" Width="300"
         ResizeMode="CanMinimize">
     <!-- Later try and add the proper datacontext in xaml for empty code behind
     DataContext="{StaticResource MainWindowViewModel}">
@@ -16,37 +16,62 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
             <Border Grid.Row="0" Padding="3">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
                         <ColumnDefinition Width="1*" />
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="2*" />
-                        <RowDefinition Height="*" />
+                        <RowDefinition Height="1*" />
                     </Grid.RowDefinitions>
 
                     <Button Background="Yellow"
                             IsEnabled="{Binding AnyDefinitn}"
                             Grid.Column="0"
                             Grid.Row="0"
-                            Grid.ColumnSpan="2"
+                            Grid.ColumnSpan="1"
                             Content="DEFINITN"
-                            FontWeight="Bold"/>
+                            FontWeight="Bold"
+                            Command="{Binding DefinitnExport}"/>
+                    <Button Background="LightBlue"
+                            IsEnabled="{Binding AnyFolder}"
+                            Grid.Column="1"
+                            Grid.Row="0"
+                            Grid.ColumnSpan="1"
+                            Content="FOLDER"
+                            FontWeight="Bold"
+                            Command="{Binding FolderExport}"/>
+                    <Button Background="Purple"
+                            IsEnabled="{Binding AnyDefinitn}"
+                            Grid.Column="2"
+                            Grid.Row="0"
+                            Content="PRODUCT"
+                            FontWeight="Bold"
+                            Command="{Binding ProductExport}" HorizontalAlignment="Left" Width="70"/>
+                    <Button Background="LightGray"
+                            IsEnabled="{Binding AnyDefinitn}"
+                            Grid.Column="3"
+                            Grid.Row="0"
+                            Content="ZONE"
+                            FontWeight="Bold"
+                            Command="{Binding ZoneExport}"/>
                     <TextBlock Padding="0 0 10 0"
                                Grid.Column="0"
                                Grid.Row="1"
+                               Grid.ColumnSpan="3"
                                Text="In clipboard:"
                                HorizontalAlignment="Right"
                                VerticalAlignment="Center"/>
                     <TextBlock Padding="10 0 0 0"
-                               Grid.Column="1"
+                               Grid.Column="4"
                                Grid.Row="1"
-                               Text="{Binding DefinitinCount}"
+                               Text="{Binding DefinitinCount, FallbackValue=0}"
                                HorizontalAlignment="Left"
                                VerticalAlignment="Center"/>
                 </Grid>
@@ -55,40 +80,7 @@
             <Border Grid.Row="1" Padding="3">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="2*" />
-                        <ColumnDefinition Width="1*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="2*" />
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-
-                    <Button Background="LightBlue"
-                            IsEnabled="{Binding AnyFolder}"
-                            Grid.Column="0"
-                            Grid.Row="0"
-                            Grid.ColumnSpan="2"
-                            Content="FOLDER"
-                            FontWeight="Bold"/>
-                    <TextBlock Padding="0 0 10 0"
-                               Grid.Column="0"
-                               Grid.Row="1"
-                               Text="In clipboard:"
-                               HorizontalAlignment="Right"
-                               VerticalAlignment="Center"/>
-                    <TextBlock Padding="10 0 0 0"
-                               Grid.Column="1"
-                               Grid.Row="1"
-                               Text="{Binding FolderCount}"
-                               HorizontalAlignment="Left"
-                               VerticalAlignment="Center"/>
-                </Grid>
-            </Border>
-
-            <Border Grid.Row="2" Padding="3">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="3*" />
                         <ColumnDefinition Width="1*" />
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
@@ -102,7 +94,8 @@
                             Grid.Row="0"
                             Grid.ColumnSpan="2"
                             Content="DESIGN"
-                            FontWeight="Bold"/>
+                            FontWeight="Bold"
+                            Command="{Binding DesignExport}"/>
                     <TextBlock Padding="0 0 10 0"
                                Grid.Column="0"
                                Grid.Row="1"
@@ -112,16 +105,16 @@
                     <TextBlock Padding="10 0 0 0"
                                Grid.Column="1"
                                Grid.Row="1"
-                               Text="{Binding DesignCount}"
+                               Text="{Binding DesignCount, FallbackValue=0}"
                                HorizontalAlignment="Left"
                                VerticalAlignment="Center"/>
                 </Grid>
             </Border>
 
-            <Border Grid.Row="3" Padding="3">
+            <Border Grid.Row="2" Padding="3">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="3*" />
                         <ColumnDefinition Width="1*" />
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
@@ -135,7 +128,8 @@
                             Grid.Row="0"
                             Grid.ColumnSpan="2"
                             Content="COMMERCE"
-                            FontWeight="Bold"/>
+                            FontWeight="Bold"
+                            Command="{Binding CommerceExport}"/>
                     <TextBlock Padding="0 0 10 0"
                                Grid.Column="0"
                                Grid.Row="1"
@@ -145,7 +139,7 @@
                     <TextBlock Padding="10 0 0 0"
                                Grid.Column="1"
                                Grid.Row="1"
-                               Text="{Binding CommerceCount}"
+                               Text="{Binding CommerceCount, FallbackValue=0}"
                                HorizontalAlignment="Left"
                                VerticalAlignment="Center"/>
                 </Grid>

@@ -7,34 +7,20 @@ namespace DMA_Clipboard_Grabber
     /// <summary>
     /// Simple helper class to pass the List(string) into and get the output Query file
     /// </summary>
-    public class QueryAssembly
+    public class QueryAssembler
     {
         static string envLine = "#CDMA.CATCON.ReplaceMe.PART"; //TODO: Query first line - get the proper form
 
-        /// <summary>
-        /// List of codes that are to be assembled into a query
-        /// </summary>
         public List<string> CodesList { get; private set; }
 
-        /// <summary>
-        /// Environment string based on the selected DMA environment
-        /// </summary>
         public string Environment { get; private set; }
 
-        /// <summary>
-        /// Query assembled on get() time.
-        /// </summary>
         public string Query { get; private set; }
 
-        /// <summary>
-        /// Constructor
-        /// </summary>
-        /// <param name="input">Array of codes to search</param>
-        /// <param name="environment">Search Environment string</param>
-        public QueryAssembly(List<string> input, String environment, int length, char fill)
+        public QueryAssembler(List<string> input, DMAEnvironment environment, int length, char fill)
         {
             CodesList = StringFill.FillListToLength(input, length, fill);
-            Environment = environment;
+            Environment = environment.ToString();
             Query = AssembleQuerry();   
         }
 
