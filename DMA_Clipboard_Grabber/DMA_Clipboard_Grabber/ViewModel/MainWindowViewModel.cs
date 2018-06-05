@@ -84,7 +84,7 @@ namespace DMA_Clipboard_Grabber
 
         public void ExportFolder(object content)
         {
-            queryAssembler = new QueryAssembler(classifier.FolderMatches, DMAEnvironment.FOLDER, CODE_LENGTH, FILLER_CHAR);
+            queryAssembler = new QueryAssembler(classifier.FolderMatches, DMAEnvironment.FOLDERS, CODE_LENGTH, FILLER_CHAR);
             queryPrinter = new QueryPrinter(queryAssembler.Query);
             queryPrinter.PrintToPointedLocation();
             queryAssembler = null;
@@ -93,7 +93,7 @@ namespace DMA_Clipboard_Grabber
 
         public void ExportProduct(object content)
         {
-            queryAssembler = new QueryAssembler(classifier.ProductMatches, DMAEnvironment.PRODUCT, CODE_LENGTH, FILLER_CHAR);
+            queryAssembler = new QueryAssembler(classifier.ProductMatches, DMAEnvironment.PRODUCTS, CODE_LENGTH, FILLER_CHAR);
             queryPrinter = new QueryPrinter(queryAssembler.Query);
             queryPrinter.PrintToPointedLocation();
             queryAssembler = null;
@@ -102,7 +102,7 @@ namespace DMA_Clipboard_Grabber
 
         public void ExportZone(object content)
         {
-            queryAssembler = new QueryAssembler(classifier.ZoneMatches, DMAEnvironment.ZONE, CODE_LENGTH, FILLER_CHAR);
+            queryAssembler = new QueryAssembler(classifier.ZoneMatches, DMAEnvironment.ZONING, CODE_LENGTH, FILLER_CHAR);
             queryPrinter = new QueryPrinter(queryAssembler.Query);
             queryPrinter.PrintToPointedLocation();
             queryAssembler = null;

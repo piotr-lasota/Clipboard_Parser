@@ -5,9 +5,9 @@ namespace DMA_Clipboard_Grabber
     public enum DMAEnvironment
     {
         DEFINITN,
-        ZONE,
-        PRODUCT,
-        FOLDER,
+        ZONING,
+        PRODUCTS,
+        FOLDERS,
         DESIGN,
         COMMERCE        
     }
