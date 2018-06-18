@@ -23,7 +23,7 @@ namespace DMA_Clipboard_Grabber
             // if the code exceeds it's desired length, throw a FormatException
             if(code.Length > length)
             {
-                throw new FormatException("Code is longer than expected. Truncating is not supported");
+                throw new FormatException("Code longer than expected. Truncating is not supported");
             }
 
             // Upperchar the string and fill it with the desired character in place of the asterisk.
