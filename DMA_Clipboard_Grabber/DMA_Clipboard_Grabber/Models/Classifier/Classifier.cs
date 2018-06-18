@@ -42,6 +42,7 @@ namespace DMA_Clipboard_Grabber
             ProductMatches = DefinitnMatches;
             ProductMatches = ProductMatches.Distinct().ToList();
         }
+
         #endregion
 
         #region REGEX and delimiters definition
