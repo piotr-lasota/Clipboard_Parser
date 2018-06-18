@@ -35,6 +35,7 @@ namespace DMA_Clipboard_Grabber
         public RelayCommand DesignExport { get; private set; }
 
         public RelayCommand CommerceExport { get; private set; }
+        public RelayCommand CreditsCommand { get; private set; }
         #endregion
 
         #region Counters properties
@@ -69,6 +70,7 @@ namespace DMA_Clipboard_Grabber
             FolderExport = new RelayCommand(ExportFolder);
             DesignExport = new RelayCommand(ExportDesign);
             CommerceExport = new RelayCommand(ExportCommerce);
+            CreditsCommand = new RelayCommand(ShowCredits);
         }
         #endregion
 
@@ -125,6 +127,18 @@ namespace DMA_Clipboard_Grabber
             queryPrinter.PrintToPointedLocation();
             queryAssembler = null;
             queryPrinter = null;
+        }
+
+        public void ShowCredits(object content)
+        {
+            MessageBox.Show(
+                "This app was developed by:\n\n" +
+                
+                "Maciej Samolej (maciej.samolej@alstomgroup.com)" +
+                "\n" +
+                "Piotr Lasota (kontakt@piotr-lasota.pl)"
+                
+                ,"Credits");
         }
         #endregion
 
